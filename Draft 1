@@ -1,0 +1,63 @@
+// Main.java
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+      System.out.println("1. Cooperate (press 'c')");
+      System.out.println();
+      System.out.println("2. Defect (press 'd')");
+      System.out.println();
+      System.out.println("3. Stop game (Both players type 'stop')");
+      System.out.println();
+      System.out.println("Scoring:");
+      System.out.println();
+      System.out.println("- If one cooperates and the other defects, the defector gets 5 points.");
+      System.out.println();
+      System.out.println("- If both cooperate, each gets 3 points.");
+      System.out.println();
+      System.out.println("- If both defect, each gets 1 point.");
+
+    	Scanner in = new Scanner (System.in);
+      
+      int p1score = 0;
+      int p2score = 0;
+      
+      System.out.println();
+      
+      for (int i = 0; i < 100; i++) {
+    	  System.out.print("Player one, make your move! ");
+    	  String p1 = in.nextLine();
+    	  System.out.print("Player two, make your move! ");
+    	  String p2 = in.nextLine();
+    	  
+    	  if (p1.equals("c") && p2.equals("d")) {
+    	    p2score+=5;
+    	    System.out.println("p1score: " + p1score);
+    	    System.out.println("p2score: " + p2score);
+    	  }
+    	  else if (p1.equals("d") && p2.equals("c")) {
+    	    p1score+=5;
+    	    System.out.println("p1score: " + p1score);
+    	    System.out.println("p2score: " + p2score);
+    	  }
+    	  else if (p1.equals("c") && p2.equals("c")) {
+    	    p1score +=3;
+    	    p2score +=3;
+    	    System.out.println("p1score: " + p1score);
+    	    System.out.println("p2score: " + p2score);
+    	  }
+    	  else if (p1.equals("d") && p2.equals("d")) {
+    	    p1score +=1;
+    	    p2score +=1;
+    	    System.out.println("p1score: " + p1score);
+    	    System.out.println("p2score: " + p2score);
+    	  }
+    	  else if (p1.equals("stop") && p2.equals("stop")) {
+    	    System.out.println("Final Scores:");
+    	    System.out.println("p1score: " + p1score);
+    	    System.out.println("p2score: " + p2score);
+    	    break;
+    	  }
+    }
+}
+}
